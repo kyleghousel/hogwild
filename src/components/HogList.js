@@ -9,7 +9,7 @@ const HogList = ({ hogList }) => {
     <>
       <Filter />
       <AddHogForm />
-      <ul className="ui grid container">
+      <div className="ui grid container">
         {hogList.map(({name, specialty, greased, weight, image}) => (
           <HogTile
             key={name}
@@ -20,7 +20,7 @@ const HogList = ({ hogList }) => {
             image={image}
           />
         ))}
-      </ul>
+      </div>
 
     </>
   )
