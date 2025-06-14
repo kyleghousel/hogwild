@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Nav from "./Nav"
-
+import AddHogForm from "./AddHogForm"
 import HogList from "./HogList"
 import HogDetails from "./HogDetails"
 import 'semantic-ui-css/semantic.min.css'
@@ -19,6 +19,7 @@ function App() {
 	return (
 		<div className="App">
 			<Nav />
+			<AddHogForm />
 			<main>
 				<HogList hogList={ hogsList } onHogSelect={handleHogSelect} />
 				<HogDetails hog={selectedHog} />

@@ -7,9 +7,9 @@ const Filter = ({ greasedFilter, onGreasedFilter }) => {
   }
 
   return (
-    <div className="filterWrapper">
+    <>
       <button id="filterBtn" onClick={handleClick}>{!greasedFilter ? "Show me them greasey hogs! 🐽" : "TOO GREASEY"}</button>
-    </div>
+    </>
   )
 }
 
