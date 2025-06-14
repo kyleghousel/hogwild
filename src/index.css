@@ -26,6 +26,15 @@ body {
   margin: 2% 0% 2% 0%;
 }
 
+#filterBtn {
+  background-color: #FBB;
+  color: #3B0B0B;
+  cursor: pointer;
+  padding: 1em;
+  font-weight: bolder;
+  border-color: #3B0B0B;
+}
+
 .headerText {
   color: #F5A9BC;
   font-size: 3em;

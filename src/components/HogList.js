@@ -4,12 +4,16 @@ import Filter from "./Filter"
 import HogTile from "./HogTile"
 
 const HogList = ({ hogList, onHogSelect }) => {
+  const [greasedFilter, setGreasedFilter] = useState(false)
+
+  const filteredHogs = greasedFilter ? hogList.filter((hog) => hog.greased === true) : hogList
+
   return (
     <>
-      <Filter />
+      <Filter hogList={hogList} greasedFilter={greasedFilter} onGreasedFilter={setGreasedFilter}/>
       <AddHogForm />
       <div className="ui grid container">
-        {hogList.map((hog) => (
+        {filteredHogs.map((hog) => (
           <HogTile
             key={hog.id}
             id={hog.id}
