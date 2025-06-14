@@ -3,21 +3,22 @@ import AddHogForm from "./AddHogForm"
 import Filter from "./Filter"
 import HogTile from "./HogTile"
 
-const HogList = ({ hogList }) => {
-
+const HogList = ({ hogList, onHogSelect }) => {
   return (
     <>
       <Filter />
       <AddHogForm />
       <div className="ui grid container">
-        {hogList.map(({name, specialty, greased, weight, image}) => (
+        {hogList.map((hog) => (
           <HogTile
-            key={name}
-            name={name}
-            specialty={specialty}
-            greased={greased}
-            weight={weight}
-            image={image}
+            key={hog.id}
+            id={hog.id}
+            name={hog.name}
+            specialty={hog.specialty}
+            greased={hog.greased}
+            weight={hog.weight}
+            image={hog.image}
+            onClick={() => onHogSelect(hog)}
           />
         ))}
       </div>
