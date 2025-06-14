@@ -1,5 +1,14 @@
 const hogs = [
   {
+    name: "Nihog",
+    specialty: "Tiramisu",
+    greased: false,
+    weight: 5.0,
+    "highest medal achieved": "gold",
+    image:
+      "/images/nihog.png",
+  },
+  {
     name: "Babe",
     specialty: "Being incredibly cute",
     greased: false,
