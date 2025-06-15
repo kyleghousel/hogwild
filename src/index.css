@@ -23,10 +23,24 @@ body {
 }
 
 .filterWrapper {
-  margin: 2% 0% 2% 0%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 2em;
+  padding: 2em;
 }
 
 #filterBtn {
+  background-color: #FBB;
+  color: #3B0B0B;
+  cursor: pointer;
+  padding: 1em;
+  font-weight: bolder;
+  border-color: #3B0B0B;
+}
+
+#sort {
   background-color: #FBB;
   color: #3B0B0B;
   cursor: pointer;
@@ -135,7 +149,6 @@ ul {
 
 .pigTile:hover {
   transform: scale(1.05);
-  cursor: pointer;
 }
 
 

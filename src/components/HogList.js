@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Sort from "./Sort"
 import Filter from "./Filter"
 import HogTile from "./HogTile"
+import { Card } from "semantic-ui-react";
 
 const HogList = ({ hogList, onHogSelect }) => {
   const [greasedFilter, setGreasedFilter] = useState(false)
@@ -30,16 +31,11 @@ const HogList = ({ hogList, onHogSelect }) => {
         <Filter hogList={hogList} greasedFilter={greasedFilter} onGreasedFilter={setGreasedFilter}/>
         <Sort sortBy={sortBy} onSortChange={setSortBy} />
       </div>
-      <div className="ui grid container">
+      <div className="ui four stackable cards">
         {sortedHogs.map((hog) => (
           <HogTile
             key={hog.id}
-            id={hog.id}
-            name={hog.name}
-            specialty={hog.specialty}
-            greased={hog.greased}
-            weight={hog.weight}
-            image={hog.image}
+            {...hog}
             onClick={() => onHogSelect(hog)}
           />
         ))}
