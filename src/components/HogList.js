@@ -1,8 +1,7 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Sort from "./Sort"
 import Filter from "./Filter"
 import HogTile from "./HogTile"
-import { Card } from "semantic-ui-react";
 
 const HogList = ({ hogList, onHogSelect }) => {
   const [greasedFilter, setGreasedFilter] = useState(false)

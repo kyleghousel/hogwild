@@ -1,16 +1,13 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 const HogTile = ({ name, image, greased, weight, specialty, ["highest medal achieved"]: medal, onClick }) => {
   const [isShowing, setIsShowing] = useState(true)
 
-  function handleHideClick(e) {
-    e.stopPropagation()
-    setIsShowing(prev => !prev)
+  const toggleDisplayHog = () => {
+    setIsShowing(!isShowing)
   }
 
-  if (!isShowing) return null
-
-  return (
+  return ( isShowing &&
     <div className="ui card pigTile">
       <div className="ui move down reveal">
         <div className="visible content">
@@ -26,12 +23,16 @@ const HogTile = ({ name, image, greased, weight, specialty, ["highest medal achi
           </div>
         </div>
       </div>
+      <button onClick={toggleDisplayHog} style={{
+          background: 'none',
+          border: 'none',
+          padding: '1em',
+          fontSize: '2em',
+          cursor: 'pointer',
+          width: '40%',
+          margin: '0 auto'
+        }}>Hide🐽Hog</button>
     </div>
-    // <div className="ui eight wide column pigTile" id={id} onClick={onClick}>
-    //   <h3 className="headerText">{name}</h3>
-    //   <img src={image} alt={`A pig named ${name}.`} className="minPigTile" />
-    //   <button onClick={handleHideClick}>Hide hog 🐖</button>
-    // </div>
   )
 }
 
