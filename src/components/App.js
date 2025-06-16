@@ -19,7 +19,7 @@ function App() {
 	return (
 		<div className="App">
 			<Nav />
-			<AddHogForm />
+			<AddHogForm hogs={hogsList} onAddHog={setHogs}/>
 			<main>
 				<HogList hogList={ hogsList } onHogSelect={handleHogSelect} />
 				<HogDetails hog={selectedHog} />
