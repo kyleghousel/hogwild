@@ -31,7 +31,7 @@ body {
   padding: 2em;
 }
 
-#filterBtn {
+#filterBtn, #addSubmitBtn {
   background-color: #FBB;
   color: #3B0B0B;
   cursor: pointer;
@@ -163,6 +163,14 @@ ul {
   clear: both;
 }
 
+#hog-form {
+  background-color: #FBB;
+  color: #3B0B0B;
+  cursor: pointer;
+  padding: 1em;
+  font-weight: bolder;
+  border-color: #3B0B0B;
+}
 
 @keyframes App-logo-spin {
   from {

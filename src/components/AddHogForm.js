@@ -2,30 +2,20 @@ import { useState } from "react"
 import { v4 as uuid } from "uuid"
 
 const AddHogForm = ( { hogs, onAddHog }) => {
-  const [newName, setNameChange] = useState('')
-  const [newSpecialty, setSpecialtyChange] = useState('')
-  const [newWeight, setWeightChange] = useState(0.0)
-  const [newMedal, setMedalChange] = useState('')
-  const [newImage, setImageChange] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    specialty: '',
+    weight: 0.0,
+    'highest medal achieved': '',
+    image: ''
+  })
 
-  const handleNameChange = (event) => {
-    setNameChange(event.target.value)
-  }
-
-  const handleSpecialtyChange = (event) => {
-    setSpecialtyChange(event.target.value)
-  }
-
-  const handleWeightChange = (event) => {
-    setWeightChange(event.target.value)
-  }
-
-  const handleMedalChange = (event) => {
-    setMedalChange(event.target.value)
-  }
-
-  const handleImageChange = (event) => {
-    setImageChange(event.target.value)
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   const handleSubmit = (event) => {
@@ -33,48 +23,41 @@ const AddHogForm = ( { hogs, onAddHog }) => {
 
     const newHog = {
       id: uuid(),
-      name: newName,
-      specialty: newSpecialty,
-      weight: newWeight,
-      'highest medal achieved': newMedal,
-      image: newImage
+      ...formData
     }
 
     const hogData = [...hogs, newHog]
     onAddHog(hogData)
 
-    setNameChange('')
-    setSpecialtyChange('')
-    setWeightChange(0)
-    setMedalChange('')
-    setImageChange('')
+    setFormData('')
+
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h4>Add New Hog</h4>
+      <form onSubmit={handleSubmit} id='hog-form'>
+        <h4 className='smallHeader'>Add New Hog</h4>
         <label>
           Name:
-          <input type='text' onChange={handleNameChange} value={newName}/>
+          <input type='text' onChange={handleChange} value={formData.name}/>
         </label>
         <label>
           Specialty:
-          <input type='text' onChange={handleSpecialtyChange} value={newSpecialty} />
+          <input type='text' onChange={handleChange} value={formData.specialty} />
         </label>
         <label>
           Weight:
-          <input type='number' onChange={handleWeightChange} value={newWeight} />
+          <input type='number' onChange={handleChange} value={formData.weight} />
         </label>
         <label>
           Highest Medal Achieved:
-          <input type='text' onChange={handleMedalChange} value={newMedal} />
+          <input type='text' onChange={handleChange} value={formData['highest medal achieved']} />
         </label>
         <label>
           Image URL:
-          <input type='text' onChange={handleImageChange} value={newImage} />
+          <input type='text' onChange={handleChange} value={formData.image} />
         </label>
-        <input type='submit' value='Submit' />
+        <input type='submit' value='Submit' id='addSubmitBtn'/>
       </form>
     </>
   );
